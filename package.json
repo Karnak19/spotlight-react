@@ -15,6 +15,14 @@
     "keyboard",
     "shortcut"
   ],
+  "homepage": "https://github.com/Karnak19/spotlight-react#readme",
+  "bugs": {
+    "url": "https://github.com/Karnak19/spotlight-react/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Karnak19/spotlight-react.git"
+  },
   "author": "Basile Vernouillet <basile64.v@gmail.com>",
   "browserslist": {
     "production": [
