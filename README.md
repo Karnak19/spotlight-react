@@ -3,12 +3,23 @@
 ## Getting starter
 
 ```sh
-npm i react react-dom react-router-dom
+npm i react react-dom react-router-dom spotlight-react
 ```
 
 ## Usage
 
+```js
+// index.js
+import ReactDOM from 'react-dom';
+import Router from './Router';
+
+import 'spotlight-react/dist/spotlight-react.css';
+
+ReactDOM.render(<Router />, document.querySelector('#root'));
+```
+
 ```jsx
+// Router.jsx
 import { Spotlight, useSpotlight } from 'spotlight-react';
 
 export default function Router() {
@@ -45,7 +56,9 @@ export default function Router() {
 
   return (
     <BrowserRouter>
-      <Switch>// Your routes goes here</Switch>
+      <Switch>
+        // Your routes goes here
+      </Switch>
       {isActive && <Spotlight blur={blur} routes={exampleRoutes} />}
     </BrowserRouter>
   );
