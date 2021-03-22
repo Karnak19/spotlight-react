@@ -1,4 +1,4 @@
-name: Npm Publish
+name: Build on master
 
 on:
   push:
