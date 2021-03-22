@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.spotlight {
+  @apply opacity-0;
+  margin-top: -500px;
+}
+
+@media screen and (max-width: 768px;) {
+  .spotlight {
+    margin-top: -1000px;
+  }
+}
+
+.spotlight input {
+  /* background-image: url('./loupe.svg'); */
+  background-repeat: no-repeat;
+  background-size: 24px;
+  background-position: 2% 50%;
+  caret-color: white;
+}
+
+.-z-1 {
+  z-index: -1;
+}
+
+.spotlight.active {
+  @apply opacity-100;
+}
+
+.spotlight > div {
+  width: 600px;
+  max-width: 95vw;
+  box-shadow: 0px 10px 20px 5px rgba(0, 0, 0, 0.5);
+}
+
+::-moz-focus-outer {
+  outline: none;
+}
+
+::-moz-focus-inner {
+  outline: none;
+}
