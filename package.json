@@ -2,11 +2,22 @@
   "name": "spotlight-react",
   "version": "0.0.4",
   "description": "MacOS Spotlight like, for your React-Router navigation",
-  "module": "dist/index.js",
   "source": "src/index.js",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/spotlight-react.umd.js",
+  "module": "./dist/spotlight-react.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/spotlight-react.es.js",
+      "require": "./dist/spotlight-react.umd.js"
+    }
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "NODE_ENV=production rollup -c"
+    "dev": "vite",
+    "build": "vite build"
   },
   "keywords": [
     "react",
@@ -38,28 +49,16 @@
   },
   "license": "ISC",
   "devDependencies": {
-    "@babel/cli": "^7.13.10",
-    "@babel/core": "^7.13.10",
-    "@babel/preset-env": "^7.13.10",
-    "@babel/preset-react": "^7.12.13",
-    "@rollup/plugin-babel": "^5.3.0",
-    "@rollup/plugin-image": "^2.0.6",
-    "@rollup/plugin-node-resolve": "^11.2.0",
+    "@vitejs/plugin-react-refresh": "^1.3.2",
     "autoprefixer": "^10.2.5",
     "cssnano": "^4.1.10",
     "postcss": "^8.2.8",
-    "postcss-url": "^10.1.3",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
-    "rollup": "^2.42.2",
-    "rollup-plugin-delete": "^2.0.0",
-    "rollup-plugin-image": "^1.0.2",
-    "rollup-plugin-peer-deps-external": "^2.2.4",
-    "rollup-plugin-postcss": "^4.0.0",
-    "tailwindcss": "^2.0.4"
+    "tailwindcss": "^2.0.4",
+    "vite": "^2.2.1"
   },
-  "dependencies": {},
   "peerDependencies": {
     "react": "^17.0.1",
     "react-dom": "^17.0.1",

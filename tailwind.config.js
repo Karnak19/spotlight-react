@@ -1,7 +1,7 @@
 module.exports = {
   purge: {
     preserveHtmlElements: false,
-    content: ['./src/**/*.js', './src/**/*.jsx'],
+    content: ["./lib/**/*.js", "./lib/**/*.jsx"],
     options: {
       keyframes: true,
     },
