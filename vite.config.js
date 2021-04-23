@@ -4,7 +4,6 @@ import reactRefresh from "@vitejs/plugin-react-refresh";
 module.exports = {
   plugins: [reactRefresh()],
   build: {
-    watch: {},
     lib: {
       entry: path.resolve(__dirname, "lib/index.js"),
       name: "SpotlightReact",
