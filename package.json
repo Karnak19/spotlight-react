@@ -6,12 +6,10 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/spotlight-react.umd.js",
   "module": "./dist/spotlight-react.es.js",
   "exports": {
     ".": {
-      "import": "./dist/spotlight-react.es.js",
-      "require": "./dist/spotlight-react.umd.js"
+      "import": "./dist/spotlight-react.es.js"
     }
   },
   "scripts": {

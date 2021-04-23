@@ -5,7 +5,6 @@ function App({}) {
   const { pathname } = useLocation();
   return (
     <div>
-      {}
       <p>hello {pathname}</p>
     </div>
   );

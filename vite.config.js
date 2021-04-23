@@ -6,7 +6,7 @@ module.exports = {
   build: {
     lib: {
       entry: path.resolve(__dirname, "lib/index.js"),
-      name: "SpotlightReact",
+      formats: ["es"],
     },
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled
