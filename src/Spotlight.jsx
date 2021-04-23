@@ -3,7 +3,14 @@ import { useHistory } from "react-router-dom";
 
 import { flatten, fullPathCreator } from "./utils";
 
-export default function Spotlight({ routes, blur }) {
+export default function Spotlight({
+  routes,
+  blur = () => {
+    console.warn(
+      "don't forget to pass the blur function from useSpotlight to blur props on Spotlight component !"
+    );
+  },
+}) {
   const [inputValue, setInputValue] = useState("");
   const [flatRoutes] = useState(flatten(fullPathCreator(routes)));
   const [selectedIndex, setSelectedIndex] = useState(0);
