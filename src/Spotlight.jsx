@@ -76,10 +76,10 @@ export default function Spotlight({ routes, blur }) {
 
   return (
     <div className="spotlight active fixed top-0 bottom-0 left-0 right-0 flex justify-center items-center bg-opacity-30 bg-black">
-      <div className="relative opacity-80 rounded-xl">
+      <div className="relative opacity-90 rounded-xl">
         <form onSubmit={handleSubmit}>
           <input
-            className="w-full p-2 pl-11 bg-gray-800 text-3xl rounded-xl border border-gray-500 placeholder-gray-400 text-gray-100 font-extralight"
+            className=" focus:outline-none w-full p-2 pl-11 bg-gray-800 text-3xl rounded-xl border border-gray-500 placeholder-gray-400 text-gray-100 font-extralight"
             placeholder="Spotlight search"
             style={{
               backgroundImage: `url('${loupe}')`,
