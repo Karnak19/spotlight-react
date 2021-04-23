@@ -1,6 +1,6 @@
 {
   "name": "spotlight-react",
-  "version": "0.0.4",
+  "version": "0.1.0-alpha1",
   "description": "MacOS Spotlight like, for your React-Router navigation",
   "source": "src/index.js",
   "files": [
