@@ -1,6 +1,6 @@
 {
   "name": "spotlight-react",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "MacOS Spotlight like, for your React-Router navigation",
   "module": "dist/index.js",
   "source": "src/index.js",
@@ -59,7 +59,6 @@
     "rollup-plugin-postcss": "^4.0.0",
     "tailwindcss": "^2.0.4"
   },
-  "dependencies": {},
   "peerDependencies": {
     "react": "^17.0.1",
     "react-dom": "^17.0.1",

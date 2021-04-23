@@ -1,9 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import { flatten, fullPathCreator } from './utils';
+import React, { useEffect, useRef, useState } from "react";
+import { useHistory } from "react-router-dom";
+
+import loupe from "./loupe.svg";
+import { flatten, fullPathCreator } from "./utils";
 
 export default function Spotlight({ routes, blur }) {
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState("");
   const [flatRoutes] = useState(flatten(fullPathCreator(routes)));
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [suggestions, setSuggestions] = useState([]);
@@ -52,16 +54,20 @@ export default function Spotlight({ routes, blur }) {
 
     inputRef.current.focus();
 
-    window.addEventListener('keydown', pressKeys);
+    window.addEventListener("keydown", pressKeys);
 
     return () => {
-      window.removeEventListener('keydown', pressKeys);
+      window.removeEventListener("keydown", pressKeys);
     };
   }, [suggestions.length]);
 
   useEffect(() => {
     if (inputValue.length >= 1) {
-      setSuggestions(flatRoutes.filter(({ name }) => name.toLowerCase().includes(inputValue.toLowerCase())));
+      setSuggestions(
+        flatRoutes.filter(({ name }) =>
+          name.toLowerCase().includes(inputValue.toLowerCase())
+        )
+      );
     } else {
       setSuggestions([]);
     }
@@ -75,6 +81,9 @@ export default function Spotlight({ routes, blur }) {
           <input
             className="w-full p-2 pl-11 bg-gray-800 text-3xl rounded-xl border border-gray-500 placeholder-gray-400 text-gray-100 font-extralight"
             placeholder="Spotlight search"
+            style={{
+              backgroundImage: `url('${loupe}')`,
+            }}
             ref={inputRef}
             type="text"
             value={inputValue}
@@ -95,11 +104,19 @@ export default function Spotlight({ routes, blur }) {
                     blur();
                   }}
                   className={`${
-                    selected ? 'bg-blue-500 hover:bg-gray-600' : 'hover:bg-gray-500'
+                    selected
+                      ? "bg-blue-500 hover:bg-gray-600"
+                      : "hover:bg-gray-500"
                   } px-3 py-1 flex justify-between rounded-lg`}
                 >
                   <div className="text-gray-200">{route.name}</div>
-                  <div className={`${selected ? 'text-gray-300' : 'text-gray-500'} text-sm italic`}>{route.path}</div>
+                  <div
+                    className={`${
+                      selected ? "text-gray-300" : "text-gray-500"
+                    } text-sm italic`}
+                  >
+                    {route.path}
+                  </div>
                 </li>
               );
             })}
