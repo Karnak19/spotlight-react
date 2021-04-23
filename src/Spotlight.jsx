@@ -84,7 +84,7 @@ export default function Spotlight({ routes, blur }) {
             type="text"
             value={inputValue}
             onChange={handleInput}
-            // onBlur={blur}
+            onBlur={blur}
           />
         </form>
         {suggestions.length >= 1 && (
