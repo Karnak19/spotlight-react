@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useHistory } from "react-router-dom";
 
-import loupe from "./loupe.svg";
 import { flatten, fullPathCreator } from "./utils";
 
 export default function Spotlight({ routes, blur }) {
@@ -81,9 +80,6 @@ export default function Spotlight({ routes, blur }) {
           <input
             className=" focus:outline-none w-full p-2 pl-11 bg-gray-800 text-3xl rounded-xl border border-gray-500 placeholder-gray-400 text-gray-100 font-extralight"
             placeholder="Spotlight search"
-            style={{
-              backgroundImage: `url('${loupe}')`,
-            }}
             ref={inputRef}
             type="text"
             value={inputValue}
