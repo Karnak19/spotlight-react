@@ -1,7 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useHistory } from "react-router-dom";
+import type { NotNestedRoute, Route } from ".";
 
 import { flatten, fullPathCreator } from "./utils";
+
+interface IProps {
+  routes: Route[];
+  blur: (e?: React.FocusEvent<HTMLInputElement>) => void;
+}
 
 export default function Spotlight({
   routes,
@@ -10,21 +16,22 @@ export default function Spotlight({
       "don't forget to pass the blur function from useSpotlight to blur props on Spotlight component !"
     );
   },
-}) {
+}: IProps) {
   const [inputValue, setInputValue] = useState("");
   const [flatRoutes] = useState(flatten(fullPathCreator(routes)));
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [suggestions, setSuggestions] = useState([]);
+  const [suggestions, setSuggestions] = useState<NotNestedRoute[]>([]);
 
-  const inputRef = useRef(null);
-  const suggestionsRef = useRef(null);
-  const selectedIndexRef = useRef(null);
+  const inputRef = useRef<HTMLInputElement | null>(null);
+  const suggestionsRef = useRef<NotNestedRoute[] | null>(null);
+  const selectedIndexRef = useRef<number | null>(null);
 
   const history = useHistory();
 
-  const handleInput = (e) => setInputValue(e.target.value);
+  const handleInput = (e: React.ChangeEvent<HTMLInputElement>) =>
+    setInputValue(e.target.value);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     history.push(suggestions[selectedIndex].path);
     blur();
@@ -39,10 +46,14 @@ export default function Spotlight({
   }, [selectedIndex]);
 
   useEffect(() => {
-    const pressKeys = (e) => {
+    const pressKeys = (e: KeyboardEvent) => {
       if (e.keyCode === 40) {
         // arrow DOWN
-        if (selectedIndexRef.current >= suggestionsRef.current.length - 1) {
+        if (
+          selectedIndexRef.current &&
+          suggestionsRef.current &&
+          selectedIndexRef.current >= suggestionsRef.current.length - 1
+        ) {
           setSelectedIndex(0);
         } else {
           setSelectedIndex((s) => s + 1);
@@ -54,11 +65,11 @@ export default function Spotlight({
       }
       // Escape key
       if (e.keyCode === 27) {
-        inputRef.current.blur();
+        inputRef?.current?.blur();
       }
     };
 
-    inputRef.current.focus();
+    inputRef?.current?.focus();
 
     window.addEventListener("keydown", pressKeys);
 

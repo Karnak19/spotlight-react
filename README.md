@@ -10,55 +10,51 @@ npm i react react-dom react-router-dom spotlight-react
 
 ```js
 // index.js
-import ReactDOM from 'react-dom';
-import Router from './Router';
+import ReactDOM from "react-dom";
+import Router from "./Router";
 
-import 'spotlight-react/dist/spotlight-react.css';
+import "spotlight-react/dist/spotlight-react.css";
 
-ReactDOM.render(<Router />, document.querySelector('#root'));
+ReactDOM.render(<Router />, document.querySelector("#root"));
 ```
 
 ```jsx
 // Router.jsx
-import { Spotlight, useSpotlight } from 'spotlight-react';
+import { Spotlight, useSpotlight } from "spotlight-react";
 
 export default function Router() {
-  const { isActive, keyboardShortcuts, blur } = useSpotlight(' '); // keyboard shortcut combined to ctrlKey
-
-  keyboardShortcuts();
+  const { isActive, blur } = useSpotlight(" "); // keyboard shortcut combined to ctrlKey
 
   const exampleRoutes = [
     {
-      name: 'User',
-      path: '/user',
+      name: "User",
+      path: "/user",
       children: [
         {
-          name: 'Dashboard',
-          path: '/dashboard',
+          name: "Dashboard",
+          path: "/dashboard",
           children: [
             {
-              name: 'Edit infos',
-              path: '/edit',
+              name: "Edit infos",
+              path: "/edit",
             },
           ],
         },
       ],
     },
     {
-      name: 'Home',
-      path: '/',
+      name: "Home",
+      path: "/",
     },
     {
-      name: 'Infos',
-      path: '/infos',
+      name: "Infos",
+      path: "/infos",
     },
   ];
 
   return (
     <BrowserRouter>
-      <Switch>
-        // Your routes goes here
-      </Switch>
+      <Switch>// Your routes goes here</Switch>
       {isActive && <Spotlight blur={blur} routes={exampleRoutes} />}
     </BrowserRouter>
   );

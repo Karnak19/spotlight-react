@@ -1,9 +1,12 @@
 {
   "name": "spotlight-react",
-  "version": "1.0.2",
+  "version": "1.2.0",
   "description": "MacOS Spotlight like, for your React-Router navigation",
   "module": "dist/index.js",
-  "source": "src/index.js",
+  "files": [
+    "dist"
+  ],
+  "source": "src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "NODE_ENV=production rollup -c"
@@ -45,6 +48,11 @@
     "@rollup/plugin-babel": "^5.3.0",
     "@rollup/plugin-image": "^2.0.6",
     "@rollup/plugin-node-resolve": "^11.2.0",
+    "@rollup/plugin-typescript": "^8.3.0",
+    "@types/node": "^16.11.6",
+    "@types/react": "^17.0.34",
+    "@types/react-dom": "^17.0.11",
+    "@types/react-router-dom": "^5.3.2",
     "autoprefixer": "^10.2.5",
     "cssnano": "^4.1.10",
     "postcss": "^8.2.8",
@@ -54,10 +62,13 @@
     "react-router-dom": "^5.2.0",
     "rollup": "^2.42.2",
     "rollup-plugin-delete": "^2.0.0",
+    "rollup-plugin-dts": "^4.0.1",
     "rollup-plugin-image": "^1.0.2",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.0",
-    "tailwindcss": "^2.0.4"
+    "tailwindcss": "^2.0.4",
+    "tslib": "^2.3.1",
+    "typescript": "^4.4.4"
   },
   "peerDependencies": {
     "react": "^17.0.1",
