@@ -1,12 +1,13 @@
 {
   "name": "spotlight-react",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "description": "MacOS Spotlight like, for your React-Router navigation",
   "module": "dist/index.js",
   "files": [
     "dist"
   ],
   "source": "src/index.ts",
+  "types": "dist/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "NODE_ENV=production rollup -c"
@@ -46,6 +47,7 @@
     "@babel/preset-env": "^7.13.10",
     "@babel/preset-react": "^7.12.13",
     "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-image": "^2.0.6",
     "@rollup/plugin-node-resolve": "^11.2.0",
     "@rollup/plugin-typescript": "^8.3.0",
@@ -66,6 +68,7 @@
     "rollup-plugin-image": "^1.0.2",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.0",
+    "rollup-plugin-terser": "^7.0.2",
     "tailwindcss": "^2.0.4",
     "tslib": "^2.3.1",
     "typescript": "^4.4.4"

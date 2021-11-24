@@ -1,14 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useHistory } from "react-router-dom";
-import type { NotNestedRoute, Route } from ".";
+import { NotNestedRoute, Route } from "./types";
 
 import { flatten, fullPathCreator } from "./utils";
 
-interface IProps {
+export interface SpotlightProps {
   routes: Route[];
   blur: (e?: React.FocusEvent<HTMLInputElement>) => void;
 }
-
 export default function Spotlight({
   routes,
   blur = () => {
@@ -16,7 +15,7 @@ export default function Spotlight({
       "don't forget to pass the blur function from useSpotlight to blur props on Spotlight component !"
     );
   },
-}: IProps) {
+}: SpotlightProps) {
   const [inputValue, setInputValue] = useState("");
   const [flatRoutes] = useState(flatten(fullPathCreator(routes)));
   const [selectedIndex, setSelectedIndex] = useState(0);

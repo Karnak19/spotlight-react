@@ -1,4 +1,4 @@
-import type { NotNestedRoute, Route, RouteWithCompletePath } from ".";
+import type { NotNestedRoute, Route, RouteWithCompletePath } from "./types";
 
 export function fullPathCreator(
   array: Route[],
