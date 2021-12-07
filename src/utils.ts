@@ -1,4 +1,9 @@
-export function fullPathCreator(array, parentPath = undefined) {
+import type { NotNestedRoute, Route, RouteWithCompletePath } from "./types";
+
+export function fullPathCreator(
+  array: Route[],
+  parentPath: string | undefined = undefined
+): RouteWithCompletePath[] {
   return array.map((el) => {
     const route = {
       ...el,
@@ -13,8 +18,10 @@ export function fullPathCreator(array, parentPath = undefined) {
   });
 }
 
-export function flatten(array) {
-  const flat = [];
+export function flatten(
+  array: Array<Route | RouteWithCompletePath>
+): NotNestedRoute[] {
+  const flat: NotNestedRoute[] = [];
   array.forEach((item) => {
     flat.push({
       name: item.name,
